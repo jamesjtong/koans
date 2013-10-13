@@ -14,6 +14,13 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  keys = [a,b,c]
+  if keys.any? {|key| key <=0 }
+    raise TriangleError
+  end
+  if a >= (b + c) || b >= (a+c) || c >= (a+b)
+    raise TriangleError
+  end
   if a == b && b == c
     :equilateral
   elsif a == b || b == c || a == c
